@@ -60,7 +60,6 @@ def bad_request(e: TypeError):
 @app.errorhandler(405)
 def internal_error(e):
     path = urlparse(request.base_url).path
-    error, message = str(e).split(':')
     return jsonify(ErrorMessage(
         timestamp=datetime.now(),
         status=405,
